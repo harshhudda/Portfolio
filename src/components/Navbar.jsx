@@ -1,28 +1,36 @@
 // src/components/Navbar.jsx
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
+  const [isHovering, setIsHovering] = useState(false);
+
   return (
     <div className="navbar bg-slate-900/70 backdrop-blur-md fixed top-0 z-50 shadow-md">
-      <div className="navbar-start avatar">
-        <div className="ring-primary ring-offset-base-100 w-15 rounded-full ring-2 ring-offset-2">
-          <img
-            src="https://media.licdn.com/dms/image/v2/D5603AQFOnv0ZrFePHQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1727868994634?e=2147483647&v=beta&t=xI1wAUaChbbNq29mFuj8oz1FCosp2pUic4n3XJDlTeo"
-            alt="Harsh Hudda"
-          />
+      {/* Avatar */}
+      <div className="navbar-start avatar ml-2">
+        <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+          <img src="/Profile-pic.jpeg" alt="Harsh Hudda" />
         </div>
       </div>
 
-      <div className="navbar-center">
-        <a className="btn btn-ghost normal-case text-xl">Harsh Hudda</a>
+      {/* Title */}
+      <div className="navbar-center text-white font-bold text-lg">
+        <span className="hidden md:inline">Harsh’s Portfolio</span>
+        <span className="md:hidden">Portfolio</span>
       </div>
 
-      <div className="navbar-end">
-        <div className="dropdown dropdown-end">
+      {/* Dropdown */}
+      <div className="navbar-end relative">
+        <div
+          className="dropdown dropdown-end"
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+        >
           <label tabIndex={0} className="btn btn-ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-5 w-5 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -30,15 +38,39 @@ export default function Navbar() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#profiles">Profiles</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+
+          <AnimatePresence>
+            {isHovering && (
+              <motion.ul
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="absolute right-0 mt-3 z-50 w-40 p-2 shadow-xl bg-white/90 backdrop-blur-md rounded-lg text-sm text-gray-500 font-medium"
+              >
+                <li>
+                  <a href="#hero" className="block px-3 py-2 rounded hover:bg-base-200">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="#projects" className="block px-3 py-2 rounded hover:bg-base-200">
+                    Projects
+                  </a>
+                </li>
+                <li>
+                  <a href="#profiles" className="block px-3 py-2 rounded hover:bg-base-200">
+                    Profiles
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="block px-3 py-2 rounded hover:bg-base-200">
+                    Contact
+                  </a>
+                </li>
+              </motion.ul>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>
