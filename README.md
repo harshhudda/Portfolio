@@ -1,12 +1,45 @@
-# React + Vite
+# Portfolio Website 🌐
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive developer portfolio showcasing my projects, technical skills, and coding profiles. Built with React.js and styled using Tailwind CSS with animated interactions via Framer Motion.
 
-Currently, two official plugins are available:
+🔗 **Live Demo**: [portfolio-m8gj.onrender.com](https://portfolio-m8gj.onrender.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React.js, Tailwind CSS, DaisyUI
+- **Animations**: Framer Motion
+- **Icons**: React Icons
+- **Hosting**: Render
+
+---
+
+## 📚 Sections
+
+- **Hero**: Name, intro, resume, LinkedIn, GitHub
+- **Projects**: Showcasing deployed apps with links
+- **Coding Profiles**: Codeforces, LeetCode (with stats)
+- **Footer**: Contact information and social links
+
+---
+
+## 🚀 Getting Started
+
+Clone the repo:
+
+```bash
+git clone https://github.com/harshhudda/portfolio.git
+cd portfolio
+```
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development Server:
+
+```bash
+npm run dev
+```
